@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Task and To-Do Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Daily Task Manager</h1>
+    <p>Organize your day. Achieve your goals.</p>
+  </header>
+
+  <main class="container">
+    <section class="summary">
+      <div class="card">
+        <h3>Total Tasks</h3>
+        <p id="totalTasks">0</p>
+      </div>
+      <div class="card">
+        <h3>Pending Tasks</h3>
+        <p id="pendingTasks">0</p>
+      </div>
+      <div class="card">
+        <h3>Completed Tasks</h3>
+        <p id="completedTasks">0</p>
+      </div>
+    </section>
+
+    <section class="task-form">
+      <h2>Add a New Task</h2>
+
+      <form id="taskForm">
+        <label for="title">Task Title</label>
+        <input
+          id="title"
+          type="text"
+          placeholder="Enter task title"
+          maxlength="120"
+          required
+        >
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          placeholder="Enter task description"
+          maxlength="1000"
+        ></textarea>
+
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <label for="dueDate">Due Date</label>
+        <input id="dueDate" type="date">
+
+        <button type="submit" id="submitButton">+ Add Task</button>
+        <button type="button" id="cancelEdit" hidden>Cancel Edit</button>
+      </form>
+
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="task-section">
+      <h2>My Tasks</h2>
+
+      <input
+        id="search"
+        type="search"
+        placeholder="Search tasks..."
+        aria-label="Search tasks"
+      >
+
+      <div class="filters">
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="all">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+
+        <select id="priorityFilter" aria-label="Filter by priority">
+          <option value="all">All Priorities</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <div id="taskList"></div>
+      <p id="emptyMessage">No tasks yet. Add your first task!</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
